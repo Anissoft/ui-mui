@@ -1,21 +1,17 @@
 language: node_js
 node_js:
   - "10"
-jobs:
-  include:
-    - stage: npm release
-      node_js: "8"
-      version: 1.0
-      script: npm install && npm run build
-      deploy:
-        edge: true
-        provider: npm
-        email: anissoftkun@gmail.com
-        api_key: $NPMJS_ACCESS_TOKEN
-        script: "npm run build && cp .template.npmrc $HOME/.npmrc && npm publish"
-        skip_cleanup: true
-        on:
-          branch: master
+
+deploy:
+  edge: true
+  provider: script
+  email: anissoftkun@gmail.com
+  api_key: $NPMJS_ACCESS_TOKEN
+  script: "npm install && npm run build && cp .template.npmrc $HOME/.npmrc && cat $HOME/.npmrc && npm"
+  skip_cleanup: true
+  on:
+    branch: master
+
 notifications:
   email:
     recipients:

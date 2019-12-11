@@ -84,6 +84,19 @@ export default (preset: ThemeOptions): Theme => {
           },
         },
       },
+      MuiInputLabel: {
+        root: {
+          left: '12px',
+          top: 3,
+        },
+        formControl: {
+          left: '12px',
+          top: 3,
+        },
+        animated: {
+          top: 0,
+        },
+      },
       MuiInputBase: {
         input: {
           paddingTop: 8,
