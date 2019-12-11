@@ -1,13 +1,14 @@
 language: node_js
 node_js:
   - "10"
-
+before_deploy:
+  - npm install
+  - npm run build
 deploy:
   edge: true
-  provider: script
-  email: anissoftkun@gmail.com
-  api_key: $NPMJS_ACCESS_TOKEN
-  script: "npm install && npm run build && cp .template.npmrc $HOME/.npmrc && cat $HOME/.npmrc && npm"
+  provider: npm
+  email: "anissoftkun@gmail.com"
+  api_key: "$NPMJS_ACCESS_TOKEN"
   skip_cleanup: true
   on:
     branch: master
