@@ -1,8 +1,9 @@
 import merge from 'lodash/merge';
-import { Theme, createMuiTheme } from '@material-ui/core';
-import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
+import createMuiTheme, { ThemeOptions, Theme } from '@material-ui/core/styles/createMuiTheme';
 
-export default (preset: ThemeOptions): Theme => {
+export default (preset: ThemeOptions, {
+  shadow = false,
+} = {}): Theme => {
   const theme = createMuiTheme(preset);
   const enhanced: ThemeOptions = {
     typography: {
@@ -16,6 +17,7 @@ export default (preset: ThemeOptions): Theme => {
     palette: {
       action: {
         hoverOpacity: 0.08,
+        disabledBackground: 'rgba(0, 0, 0, 0.08)',
       },
     },
     overrides: {
@@ -24,13 +26,13 @@ export default (preset: ThemeOptions): Theme => {
           padding: '6px 15px',
         },
         contained: {
-          boxShadow: 'none',
+          ...(shadow ? {} : { boxShadow: 'none' }),
           backgroundColor: 'white',
           '&:hover': {
-            boxShadow: 'none',
+            ...(shadow ? {} : { boxShadow: 'none' }),
           },
           '&:active': {
-            boxShadow: 'none',
+            ...(shadow ? {} : { boxShadow: 'none' }),
             '&::before': {
               content: '""',
               backgroundColor: 'rgba(0,0,0,0.05)',
@@ -43,18 +45,18 @@ export default (preset: ThemeOptions): Theme => {
           },
         },
         root: {
-          boxShadow: 'none',
-          backgroundColor: 'white',
+          ...(shadow ? {} : { boxShadow: 'none' }),
+          // backgroundColor: 'white',
           borderRadius: 2,
           border: '1px solid rgba(0,0,0,0.15)',
           padding: '6px 15px',
           textTransform: 'none',
           '&:hover': {
-            boxShadow: 'none',
+            ...(shadow ? {} : { boxShadow: 'none' }),
             // backgroundColor: 'rgba(0,0,0,0.05)',
           },
           '&:active': {
-            boxShadow: 'none',
+            ...(shadow ? {} : { boxShadow: 'none' }),
             '&::before': {
               content: '""',
               backgroundColor: 'rgba(0,0,0,0.05)',
@@ -71,7 +73,6 @@ export default (preset: ThemeOptions): Theme => {
         },
         label: {
           lineHeight: '20px',
-          // color: '#404040',
         },
       },
       MuiInput: {
@@ -102,37 +103,28 @@ export default (preset: ThemeOptions): Theme => {
           paddingTop: 8,
           paddingLeft: 10,
           paddingRight: 10,
+          border: 'none',
+        },
+        root: {
+          margin: 1,
           border: '1px solid rgba(0, 0, 0, 0.15)',
           'border-top-color': 'rgba(0, 0, 0, 0.15)',
-          margin: 1,
-          '&:focus': {
+          '&$error': {
+            margin: 0,
+            border: '2px solid black',
+            borderColor: theme.palette.error.main,
+          },
+          '&$focused': {
             margin: 0,
             border: '2px solid black',
             borderColor: theme.palette.primary.main,
           },
-        },
-        root: {
           letterSpacing: 'normal',
-          // 'line-height': 'normal',
-          // 'font-family': 'inherit',
-          // fontWeight: 'normal',
-          // fontStyle: 'normal',
-          // fontVariant: 'normal',
-          // 'font-stretch': 'normal',
-          // 'text-align': 'initial',
-          // 'text-transform': 'none',
-          // 'text-shadow': 'none',
-          // width: 250px,
           color: 'inherit',
-          // backgroundColor: 'white',
           boxShadow: 'none',
-          // border: '1px solid rgba(0, 0, 0, 0.15)',
-          // 'border-top-color': 'rgba(0, 0, 0, 0.15)',
+          boxSizing: 'content-box',
           'font-size': '0.9rem',
-          'line-height': 20,
-          // 'padding-top': 2,
-          // 'padding-bottom': 1,
-          // height: 34,
+          'line-height': '1.5',
         },
       },
     },
