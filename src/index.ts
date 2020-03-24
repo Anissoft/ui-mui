@@ -1,5 +1,6 @@
 import merge from 'lodash/merge';
 import createMuiTheme, { ThemeOptions, Theme } from '@material-ui/core/styles/createMuiTheme';
+import { detectIE } from './tools';
 
 export default (preset: ThemeOptions, {
   shadow = false,
@@ -21,6 +22,11 @@ export default (preset: ThemeOptions, {
       },
     },
     overrides: {
+      MuiGrid: {
+        'grid-xs-12': {
+          flexBasis: detectIE() ? 'unset' : '100%',
+        },
+      },
       MuiButton: {
         text: {
           padding: '6px 15px',
@@ -46,14 +52,12 @@ export default (preset: ThemeOptions, {
         },
         root: {
           ...(shadow ? {} : { boxShadow: 'none' }),
-          // backgroundColor: 'white',
           borderRadius: 2,
           border: '1px solid rgba(0,0,0,0.15)',
           padding: '6px 15px',
           textTransform: 'none',
           '&:hover': {
             ...(shadow ? {} : { boxShadow: 'none' }),
-            // backgroundColor: 'rgba(0,0,0,0.05)',
           },
           '&:active': {
             ...(shadow ? {} : { boxShadow: 'none' }),
@@ -124,7 +128,7 @@ export default (preset: ThemeOptions, {
           boxShadow: 'none',
           boxSizing: 'content-box',
           'font-size': '0.9rem',
-          'line-height': '1.5',
+          lineHeight: detectIE() ? '1em' : '1.5em',
         },
       },
     },
