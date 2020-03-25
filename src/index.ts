@@ -110,9 +110,9 @@ export default (preset: ThemeOptions, {
           border: 'none',
         },
         root: {
-          margin: 1,
-          border: '1px solid rgba(0, 0, 0, 0.15)',
-          'border-top-color': 'rgba(0, 0, 0, 0.15)',
+          margin: 0,
+          border: '2px solid rgba(0, 0, 0, 0.15)',
+          borderTopColor: 'rgba(0, 0, 0, 0.15)',
           '&$error': {
             margin: 0,
             border: '2px solid black',
@@ -126,9 +126,17 @@ export default (preset: ThemeOptions, {
           letterSpacing: 'normal',
           color: 'inherit',
           boxShadow: 'none',
-          boxSizing: 'content-box',
-          'font-size': '0.9rem',
+          boxSizing: 'border-box',
+          fontSize: '0.9rem',
           lineHeight: detectIE() ? '1em' : '1.5em',
+        },
+        colorSecondary: {
+          '&$error': {
+            borderColor: theme.palette.error.main,
+          },
+          '&$focused': {
+            borderColor: theme.palette.secondary.main,
+          },
         },
       },
     },
