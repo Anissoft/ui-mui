@@ -1,9 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import MuiInput from '@material-ui/core/TextField';
 import MuiTextField from '@material-ui/core/TextField';
 import MuiInput from '@material-ui/core/Input';
-import MenuItem from '@material-ui/core/MenuItem';
 import SkbInput from '@skbkontur/react-ui/Input';
 
 import { storiesOf } from '@storybook/react';
