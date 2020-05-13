@@ -5,6 +5,8 @@
 
 Тема для [material-ui](https://material-ui.com/), делающая компоненты похожими на [Контур гайды](https://guides.kontur.ru/)
 
+[DEMO](https://anissoft.github.io/ui-mui/)
+
 ## Установка
 
 ```sh
