@@ -1,6 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import MuiInput from '@material-ui/core/TextField';
+import MuiTextField from '@material-ui/core/TextField';
+import MuiInput from '@material-ui/core/Input';
+import MenuItem from '@material-ui/core/MenuItem';
 import SkbInput from '@skbkontur/react-ui/Input';
 
 import { storiesOf } from '@storybook/react';
@@ -9,9 +12,8 @@ import {
 } from '@storybook/addon-knobs';
 import { Wrapper } from './Wrapper';
 
-const stories = storiesOf('Text Inputs', module);
+const stories = storiesOf('Inputs', module);
 stories.addDecorator(withKnobs({ escapeHTML: false }));
-
 
 stories.add('Regular', () => {
   const inputValue = text('inputText', 'Hello');
@@ -20,23 +22,17 @@ stories.add('Regular', () => {
       mui={() => [
         <MuiInput
           key="1"
-          defaultValue={inputValue}
+          value={inputValue}
         />,
-        <MuiInput
+        <MuiTextField
           key="2"
-          defaultValue={inputValue}
-          variant="filled"
-        />,
-        <MuiInput
-          key="3"
-          defaultValue={inputValue}
-          variant="outlined"
+          value={inputValue}
         />,
       ]}
       skb={() => [
         <SkbInput
           key="1"
-          defaultValue={inputValue}
+          value={inputValue}
         />,
       ]}
     />

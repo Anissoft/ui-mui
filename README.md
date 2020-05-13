@@ -8,8 +8,17 @@
 ## Установка
 
 ```sh
-npm install @anissoft/uimui
+npm install @anissoft/uimui --save
 ```
+
+## Компоненты
+
+Все стили пишутся по мере необходимости, поэтому если вам не хватает реализации какого-нибудь компонента - [велкам](https://github.com/Anissoft/ui-mui/issues)
+
+- Button
+- TextField (только variant="standard")
+
+> Поддерживается только плоская тема!
 
 ## Использование
 
