@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Example/Introduction" />
+
+# Welcome to UiMui 👋
+![Version](https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#)
+
+Тема для [material-ui](https://material-ui.com/), делающая компоненты похожими на [Tinkoff дизайн систему](https://www.tinkoff.ru/)
+
+## Установка
+
+```sh
+npm install @anissoft/uimui --save
+```
+
+## Использование
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import uimuize from '@anissoft/uimui';
+import { ThemeProvider } from '@material-ui/core/styles';
+
+import App from './App';
+
+const myTheme = {
+  palette: { /* ... */ },
+  /* ... */
+};
+
+ReactDOM.render(
+  <ThemeProvider theme={uimuize(myTheme)}>
+    <App/>
+  </ThemeProvider>,
+  document.getElementById('root'),
+);
+```
+
+## Автор
+
+👤 **Alexey Anisimov**
+
+* Github: [@Anissoft](https://github.com/Anissoft)
